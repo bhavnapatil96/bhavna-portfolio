@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bhavna Patil</title>
+<meta name="description" content="Bhavna Patil, Senior Fullstack Engineer building SaaS, payroll and AI-powered platforms with React, Next.js, Node.js, TypeScript and PostgreSQL.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column, max 1120px. Hero pairs a statement with a pay-stub style "ledger" of real figures;
+   work, experience and skills follow as quiet bands; contact closes. */
+:root {
+  --bg: #F4F6FA;
+  --surface: #FFFFFF;
+  --ink: #12213A;
+  --muted: #56627A;
+  --line: #DCE2EC;
+  --accent: #1D5FD1;
+  --accent-soft: #E3ECFB;
+  --gold: #B87503;
+  --chip: #EEF2F8;
+
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.6rem;
+  --step-3: clamp(2rem, 1.4rem + 2.6vw, 3.1rem);
+  --step-4: clamp(2.5rem, 1.6rem + 4vw, 4.4rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0B1322; --surface: #111C30; --ink: #E7EDF6; --muted: #9AA8BF; --line: #22314B;
+    --accent: #6EA8FF; --accent-soft: #16294A; --gold: #F0B54A; --chip: #18243A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0B1322; --surface: #111C30; --ink: #E7EDF6; --muted: #9AA8BF; --line: #22314B;
+  --accent: #6EA8FF; --accent-soft: #16294A; --gold: #F0B54A; --chip: #18243A;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+img { max-width: 100%; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+p { margin: 0; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 700; }
+.mark span.mono {
+  display: grid; place-items: center; width: 34px; height: 34px; border-radius: 8px;
+  background: var(--ink); color: var(--bg); font-size: 0.9rem; letter-spacing: 0.02em;
+}
+.nav ul { display: flex; gap: clamp(12px, 3vw, 28px); list-style: none; margin: 0; padding: 0; }
+.nav ul a { color: var(--muted); text-decoration: none; font-size: var(--step--1); font-weight: 500; }
+.nav ul a:hover { color: var(--ink); }
+@media (max-width: 560px) { .nav ul li.opt { display: none; } }
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(48px, 8vw, 96px) clamp(40px, 6vw, 72px); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } }
+.eyebrow {
+  font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center;
+}
+.eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: #2FB36B; box-shadow: 0 0 0 4px color-mix(in srgb, #2FB36B 22%, transparent); }
+.intro { display: flex; align-items: center; gap: 18px; }
+.avatar {
+  width: 92px; height: 92px; border-radius: 50%; object-fit: cover; flex: none;
+  border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--accent), 0 10px 24px -12px color-mix(in srgb, var(--ink) 60%, transparent);
+}
+.intro .name { font-family: var(--display); font-weight: 700; font-size: var(--step-1); line-height: 1.2; margin-bottom: 6px; }
+.hero h1 { font-size: var(--step-4); font-weight: 800; margin-top: 18px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .lede { margin-top: 22px; max-width: 58ch; color: var(--muted); font-size: 1.1rem; }
+.hero .lede strong { color: var(--ink); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 10px;
+  font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid transparent; cursor: pointer; font-family: var(--body);
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--ink); }
+.btn.accent { background: var(--accent); color: var(--surface); }
+.btn svg { width: 16px; height: 16px; }
+
+/* pay-stub ledger */
+.stub {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+  font-family: var(--mono); font-size: 0.86rem; overflow: hidden;
+  box-shadow: 0 18px 40px -24px color-mix(in srgb, var(--ink) 45%, transparent);
+}
+.stub header { display: flex; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px dashed var(--line); color: var(--muted); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.stub dl { margin: 0; padding: 6px 20px; }
+.stub .row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.stub .row:last-child { border-bottom: 0; }
+.stub dt { color: var(--muted); }
+.stub dd { margin: 0; color: var(--ink); font-weight: 500; font-size: 1.05rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stub dd.gold { color: var(--gold); }
+.stub footer { display: flex; justify-content: space-between; gap: 12px; padding: 14px 20px; background: var(--accent-soft); color: var(--ink); font-size: 0.8rem; }
+
+/* ---------- sections ---------- */
+section.band { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--line); }
+.sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; margin-bottom: clamp(28px, 4vw, 44px); }
+.sec-head h2 { font-size: var(--step-3); font-weight: 700; }
+.sec-head p { color: var(--muted); max-width: 46ch; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+
+/* work */
+.work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 820px) { .work { grid-template-columns: minmax(0, 1fr); } }
+.proj {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: clamp(20px, 3vw, 28px);
+  display: flex; flex-direction: column; gap: 14px; min-width: 0;
+  transition: border-color .2s ease;
+}
+.proj:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+.proj.featured { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px 40px; }
+@media (max-width: 820px) { .proj.featured { grid-template-columns: minmax(0, 1fr); } }
+.proj .meta { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.badge { padding: 3px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+.proj h3 { font-size: var(--step-2); font-weight: 700; }
+.proj .what { color: var(--muted); }
+.proj ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; }
+.proj li::marker { color: var(--accent); }
+.proj .fig { font-family: var(--mono); color: var(--gold); font-weight: 500; white-space: nowrap; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.chip { font-family: var(--mono); font-size: 0.75rem; padding: 4px 9px; border-radius: 6px; background: var(--chip); color: var(--muted); }
+
+.earlier { margin-top: 44px; }
+.earlier h3 { font-size: var(--step-1); font-weight: 700; margin-bottom: 14px; }
+.list { border-top: 1px solid var(--line); }
+.list .item { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr) auto; gap: 8px 24px; padding: 16px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.list .item strong { font-weight: 600; }
+.list .item p { color: var(--muted); }
+.list .item time { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+@media (max-width: 700px) { .list .item { grid-template-columns: minmax(0, 1fr); gap: 4px; } }
+
+/* experience */
+.timeline { display: grid; gap: 0; border-left: 2px solid var(--line); margin-left: 6px; }
+.job { position: relative; padding: 0 0 40px 30px; }
+.job:last-child { padding-bottom: 0; }
+.job::before { content: ""; position: absolute; left: -8px; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+.job .top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 20px; align-items: baseline; }
+.job h3 { font-size: var(--step-2); font-weight: 700; }
+.job time { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.job .role { color: var(--accent); font-weight: 600; margin-top: 4px; }
+.job ul { margin: 14px 0 0; padding-left: 1.1em; display: grid; gap: 6px; color: var(--muted); max-width: 75ch; }
+.edu { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 48px; }
+@media (max-width: 700px) { .edu { grid-template-columns: minmax(0, 1fr); } }
+.edu div { padding: 18px 20px; border: 1px solid var(--line); border-radius: 12px; }
+.edu strong { display: block; font-weight: 600; }
+.edu span { color: var(--muted); font-size: var(--step--1); }
+.edu .score { font-family: var(--mono); color: var(--gold); }
+
+/* skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px; }
+@media (max-width: 900px) { .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+.skills h3 { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.skills .chips { margin-top: 0; padding-top: 0; }
+.skills .chip { font-size: 0.82rem; padding: 6px 10px; color: var(--ink); }
+
+/* about */
+.about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 64px); }
+@media (max-width: 820px) { .about { grid-template-columns: minmax(0, 1fr); } }
+.about .text { display: grid; gap: 16px; color: var(--muted); font-size: 1.05rem; max-width: 62ch; }
+.about .text strong { color: var(--ink); font-weight: 600; }
+.principles { display: grid; gap: 14px; }
+.principles div { padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+.principles strong { display: block; font-family: var(--display); font-size: 1.1rem; }
+.principles span { color: var(--muted); font-size: 0.95rem; }
+
+/* contact */
+.contact { background: var(--ink); color: var(--bg); border-radius: 18px; padding: clamp(28px, 5vw, 56px); display: grid; gap: 22px; }
+.contact h2 { font-size: var(--step-3); font-weight: 800; }
+.contact p { color: color-mix(in srgb, var(--bg) 75%, var(--ink)); max-width: 52ch; }
+.contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.email {
+  font-family: var(--mono); font-size: clamp(0.95rem, 2.4vw, 1.15rem); padding: 12px 16px; border-radius: 10px;
+  background: color-mix(in srgb, var(--bg) 10%, var(--ink)); color: var(--bg); user-select: all; overflow-wrap: anywhere;
+}
+.contact .btn.light { background: var(--bg); color: var(--ink); }
+.contact .btn.outline { color: var(--bg); border-color: color-mix(in srgb, var(--bg) 35%, var(--ink)); background: transparent; }
+.contact .btn.outline:hover { border-color: var(--bg); }
+
+footer.site { padding-block: 32px 48px; color: var(--muted); font-size: var(--step--1); }
+footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="mark" href="#top"><span class="mono">BP</span>Bhavna Patil</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li class="opt"><a href="#experience">Experience</a></li>
+      <li class="opt"><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Bhavna-Patil-Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="intro">
+        <img class="avatar" src="photo.jpg" alt="Photo of Bhavna Patil" width="92" height="92">
+        <div>
+          <div class="name">Bhavna Patil</div>
+          <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Senior Fullstack Engineer</span><span>Surat, India</span></div>
+        </div>
+      </div>
+      <h1>I build software that makes <em>complex work simple.</em></h1>
+      <p class="lede">I'm Bhavna, a fullstack engineer with <strong>8+ years</strong> of experience in React, Next.js, Node.js, TypeScript and PostgreSQL. At <strong>Datanova</strong> I lead and build SaaS platforms for benefits, payroll and HR, including payroll tax engines, multi-vendor integrations and AI-powered data tools.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See my work</a>
+        <a class="btn accent" href="Bhavna-Patil-Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Resume (PDF)</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <aside class="stub" aria-label="Career highlights">
+      <header><span>Statement of work</span><span>2018 – Present</span></header>
+      <dl>
+        <div class="row"><dt>Payroll tax accuracy</dt><dd class="gold">± $0.02</dd></div>
+        <div class="row"><dt>Payroll providers integrated</dt><dd>10+</dd></div>
+        <div class="row"><dt>US states in tax engine</dt><dd>20+</dd></div>
+        <div class="row"><dt>Years shipping software</dt><dd>8+</dd></div>
+      </dl>
+      <footer><span>Currently</span><span>Helix360 @ Datanova</span></footer>
+    </aside>
+  </div>
+</header>
+
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Selected work</div><h2>Projects at Datanova</h2></div>
+      <p>Platforms I have led and built since December 2024, mostly in payroll, benefits and workplace software.</p>
+    </div>
+
+    <div class="work">
+      <article class="proj featured">
+        <div style="display:grid;gap:14px;align-content:start;min-width:0">
+          <div class="meta"><span class="badge">Current</span><span>Benefits eligibility · SaaS</span></div>
+          <h3>Helix360</h3>
+          <p class="what">A platform insurance carriers use to check which employees qualify for benefit plans, based on the employer's census and payroll data.</p>
+          <div class="chips"><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">PostgreSQL</span><span class="chip">Next.js</span><span class="chip">Azure</span></div>
+        </div>
+        <ul>
+          <li>Built a US payroll tax engine covering federal, Social Security, Medicare, 20+ states and local taxes. Results match the existing system to within <span class="fig">2 cents</span>.</li>
+          <li>Automated <span class="fig">5</span> business reports (Excel/CSV) for sales, operations and payroll teams.</li>
+          <li>Used AI to read messy client files and map their columns automatically.</li>
+          <li>Built eligibility rules on top of employer census and payroll data.</li>
+        </ul>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span>Payroll · Integrations · AI</span></div>
+        <h3>Champions Health Payroll Integration</h3>
+        <p class="what">One API and admin app connecting <span class="fig">10+</span> payroll providers.</p>
+        <ul>
+          <li>Designed a provider layer with one module per vendor, supporting different OAuth and credential models.</li>
+          <li>Added OpenAI-based classification of deduction and tax codes, with fallbacks and customer overrides.</li>
+          <li>Built Excel/CSV export pipelines delivered to AWS S3 and SFTP.</li>
+        </ul>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">PostgreSQL</span><span class="chip">Drizzle</span><span class="chip">Auth0</span><span class="chip">OpenAI</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span>Payroll admin · Finch HRIS</span></div>
+        <h3>WC Administrator</h3>
+        <p class="what">A payroll admin platform that syncs with employers' HR and payroll systems.</p>
+        <ul>
+          <li>Built REST APIs with Node.js, Express, TypeScript, Prisma and PostgreSQL.</li>
+          <li>Scheduled payroll runs (period and YTD) with Excel reports stored in AWS S3.</li>
+          <li>Secured with Auth0 JWT and encrypted third-party tokens. Built the React + Vite admin UI.</li>
+        </ul>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">Prisma</span><span class="chip">PostgreSQL</span><span class="chip">React</span><span class="chip">AWS S3</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span>Microsoft Teams · Enterprise</span></div>
+        <h3>Workproud</h3>
+        <p class="what">A workplace engagement app inside Microsoft Teams: posts, channels, recognition, awards and notifications.</p>
+        <ul>
+          <li>Led end-to-end delivery of a multi-tenant Teams + Azure AD app.</li>
+          <li>Integrated Microsoft Graph and an Azure Bot Framework endpoint.</li>
+          <li>Built the Node.js API (Sequelize, PostgreSQL) and the React client (Redux Toolkit, React Query).</li>
+        </ul>
+        <div class="chips"><span class="chip">React</span><span class="chip">Fluent UI</span><span class="chip">Teams SDK</span><span class="chip">Microsoft Graph</span><span class="chip">Node.js</span></div>
+      </article>
+
+      <article class="proj">
+        <div class="meta"><span>How I build</span></div>
+        <h3>AI in my daily workflow</h3>
+        <p class="what">I use AI tools every day to plan, write and review code faster, while keeping quality and ownership with me.</p>
+        <ul>
+          <li>Cursor, Claude and ChatGPT for coding, refactoring and debugging.</li>
+          <li>OpenAI APIs inside products for data classification and file mapping.</li>
+          <li>Human review and clear fallbacks wherever AI makes a decision.</li>
+        </ul>
+        <div class="chips"><span class="chip">Cursor</span><span class="chip">Claude</span><span class="chip">ChatGPT</span><span class="chip">OpenAI API</span></div>
+      </article>
+    </div>
+
+    <div class="earlier">
+      <h3>Earlier projects</h3>
+      <div class="list">
+        <div class="item"><strong><a href="https://www.matchmymakeup.com" target="_blank" rel="noopener">Match My Makeup</a></strong><p>Next.js and Node.js beauty platform with affiliate product recommendations and SEO.</p><time>2021 – 2024</time></div>
+        <div class="item"><strong>RevMaxAI</strong><p>Medical document platform for affiliates and payors: claims, comparisons and audits.</p><time>2024</time></div>
+        <div class="item"><strong>SalesQuoter</strong><p>Selenium test automation for a custom door ordering and pricing system.</p><time>2019 – 2020</time></div>
+        <div class="item"><strong><a href="https://www.sidecarlearning.com/" target="_blank" rel="noopener">SideCar Learning</a></strong><p>React and Redux learning platform with Admin, Creator and Tutor roles.</p><time>2018 – 2019</time></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Experience</div><h2>Where I've worked</h2></div>
+    </div>
+    <div class="timeline">
+      <div class="job">
+        <div class="top"><h3>Datanova</h3><time>Dec 2024 – Present</time></div>
+        <div class="role">Senior Fullstack Engineer</div>
+        <ul>
+          <li>Lead and build SaaS platforms for benefits eligibility, payroll and HR.</li>
+          <li>Own projects end to end: requirements, architecture, development and release.</li>
+          <li>Bring AI into products and into the team's daily development workflow.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="top"><h3>Lanet Team Software Solutions</h3><time>Jun 2018 – Oct 2024</time></div>
+        <div class="role">Senior Software Developer</div>
+        <ul>
+          <li>Built and deployed web apps with React, Next.js, Node.js and Express.</li>
+          <li>Worked directly with clients to gather requirements and deliver solutions.</li>
+          <li>Mentored developers and ran Agile sprints with Jira and Trello.</li>
+          <li>Wrote automated tests with Jest, Mocha and Selenium, and improved SEO for client sites.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="edu">
+      <div><strong>M.Sc. Information &amp; Communication Technology</strong><span>Veer Narmad South Gujarat University · 2016 – 2018 · CGPA <span class="score">8.03</span></span></div>
+      <div><strong>Bachelor of Computer Applications</strong><span>Veer Narmad South Gujarat University · 2013 – 2016 · CGPA <span class="score">9.61</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Skills</div><h2>What I work with</h2></div>
+    </div>
+    <div class="skills">
+      <div><h3>Frontend</h3><div class="chips"><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Redux Toolkit</span><span class="chip">React Query</span><span class="chip">Tailwind CSS</span><span class="chip">Material-UI</span><span class="chip">Fluent UI</span></div></div>
+      <div><h3>Backend</h3><div class="chips"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">REST APIs</span><span class="chip">Prisma</span><span class="chip">Sequelize</span><span class="chip">Drizzle</span><span class="chip">node-cron</span></div></div>
+      <div><h3>Data &amp; cloud</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">MongoDB</span><span class="chip">Azure</span><span class="chip">AWS S3</span><span class="chip">SFTP</span></div></div>
+      <div><h3>Auth &amp; integrations</h3><div class="chips"><span class="chip">Auth0</span><span class="chip">OAuth 2.0</span><span class="chip">JWT</span><span class="chip">Microsoft Graph</span><span class="chip">Teams SDK</span><span class="chip">Bot Framework</span><span class="chip">Finch</span></div></div>
+      <div><h3>AI</h3><div class="chips"><span class="chip">OpenAI API</span><span class="chip">Prompt engineering</span><span class="chip">Cursor</span><span class="chip">Claude</span><span class="chip">ChatGPT</span></div></div>
+      <div><h3>Testing &amp; process</h3><div class="chips"><span class="chip">Jest</span><span class="chip">Mocha</span><span class="chip">Selenium</span><span class="chip">Git</span><span class="chip">CI/CD</span><span class="chip">Jira</span><span class="chip">Agile</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="label">About</div>
+      <h2 style="font-size:var(--step-3);margin-bottom:20px">A bit about me</h2>
+      <div class="text">
+        <p>I started as a frontend developer in 2018 and grew into a fullstack engineer who leads projects from the first conversation with a client to the production release.</p>
+        <p>Today most of my work sits where <strong>money, data and rules meet</strong>: payroll taxes, benefits eligibility and integrations with many outside systems. In this kind of work, small mistakes cost real money, so I care a lot about accuracy, testing and clear code.</p>
+        <p>Outside of client work I enjoy learning new tools, and I've won seven prizes in inter-college IT competitions.</p>
+      </div>
+    </div>
+    <div class="principles">
+      <div><strong>Accuracy first</strong><span>Payroll results checked to the cent against existing systems.</span></div>
+      <div><strong>Clear communication</strong><span>Direct work with clients and teams, with no surprises at release.</span></div>
+      <div><strong>Ownership</strong><span>From requirements to production, I see the work through.</span></div>
+      <div><strong>Always learning</strong><span>New tools, including AI, used where they really help.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="contact" style="border-top:0;padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div class="label" style="color:inherit;opacity:.7">Contact</div>
+      <h2>Let's build something together.</h2>
+      <p>I'm open to conversations about senior fullstack roles, SaaS products and AI-driven platforms.</p>
+      <div class="row">
+        <span class="email" id="email">patilbhavna96@gmail.com</span>
+        <button class="btn light" id="copy" type="button">Copy email</button>
+        <a class="btn outline" href="https://www.linkedin.com/in/bhavna96/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn outline" href="Bhavna-Patil-Resume.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap"><span>© 2026 Bhavna Patil</span><span>Senior Fullstack Engineer · Surat, India</span></div>
+</footer>
+
+<script>
+  document.getElementById('copy').addEventListener('click', function () {
+    var btn = this, text = document.getElementById('email').textContent;
+    function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected, press Ctrl+C');
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback);
+    } catch (e) { fallback(); }
+  });
+</script>
+</body>
+</html>
